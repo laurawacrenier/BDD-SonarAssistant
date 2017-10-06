@@ -135,7 +135,7 @@ export default {
         case 'angry': return '/static/Claudio-Angry.gif'
         case 'laugh': return '/static/Claudio-Laughing.gif'
         case 'dance': return '/static/Claudio-Dancing.gif'
-        case 'happy': return '/static/Claudio-Dancing.gif'
+        case 'happy': return '/static/Claudio-Happy.gif'
         default: return '/static/claudio-talking.gif'
       }
     }
