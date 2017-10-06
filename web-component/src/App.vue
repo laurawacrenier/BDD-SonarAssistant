@@ -24,8 +24,9 @@
                   {{ item.message }}
                 </v-card-title>
                 <v-card-title v-if="item.url != null">
-                  You can read more about that on the 
-                  <a :href="item.url" target="_blank">official documentation</a>.
+                  You can read more about that on the
+                  <a :href="item.url"
+                     target="_blank">official documentation</a>.
                 </v-card-title>
               </v-card>
             </v-flex>
@@ -46,7 +47,8 @@
               class="questionForm">
           <v-text-field v-model="question"
                         hint="Ask a question"
-                        append-icon="send">
+                        append-icon="send"
+                        @input="typingQuestion()">
           </v-text-field>
         </form>
       </v-footer>
@@ -58,7 +60,7 @@
         <v-avatar size="240px"
                   class="mb-5"
                   tile="true">
-          <img src="/static/claudio-hello.gif">
+          <img :src="claudioImage">
         </v-avatar>
         <blockquote>
           Hello there, I'm here to help.<br/> Be my guest!
@@ -74,6 +76,7 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
@@ -82,6 +85,7 @@ export default {
       fixed: false,
       miniVariant: false,
       question: '',
+      claudioImage: '/static/claudio-hello.gif',
       items: [
         {
           who: 'bot',
@@ -99,6 +103,8 @@ export default {
       }
       // Display my question
       this.items.push({ who: 'me', message: this.question })
+      this.claudioImage = '/static/Claudio-Thinking.gif'
+
       // Grab the answer
       let answer = this.$bot.answerQuestion(this.question)
       // Display the answer
@@ -107,6 +113,10 @@ export default {
         message: answer.msg,
         url: answer.url
       })
+      this.claudioImage = '/static/claudio-talking.gif'
+    },
+    typingQuestion() {
+      this.claudioImage = '/static/Claudio-Waiting.gif'
     }
   }
 }
