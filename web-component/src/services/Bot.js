@@ -7,14 +7,16 @@ export default class Bot {
 
   answerQuestion(input) {
     var lowerCaseInput = input.toLowerCase()
+    var rule = this.behavior.find(function(element) {
+      return new RegExp(element.pattern).test(lowerCaseInput)
+    })
 
-    switch (true) {
-      case lowerCaseInput.startsWith('what'):
-        return this.matchWhatInput(lowerCaseInput)
-      case lowerCaseInput.startsWith('how'):
-        return this.matchHowInput(lowerCaseInput)
+    if (rule === undefined) {
+      return {
+        msg: 'I am not sure to understand the question. Could you reword your question?'
+      }
+    } else {
+      return rule.answer
     }
-
-    return 'I am not sure to understand the question. Could you reword your question?'
   }
 }
