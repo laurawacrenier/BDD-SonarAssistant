@@ -1,16 +1,8 @@
-import AggressiveBehavior from './AggressiveBehavior'
-import PoshBehavior from './PoshBehavior'
-import GeekBehavior from './GeekBehavior'
+import ClassicBehavior from './ClassicBehavior'
 
 export default class Bot {
   constructor() {
-    this.behavior = this.selectBehavior().rules
-  }
-
-  selectBehavior() {
-    var allBehaviors = [new PoshBehavior(), new GeekBehavior(), new AggressiveBehavior()]
-    var randomIndex = Math.floor((Math.random() * 3) + 1)
-    return allBehaviors[randomIndex]
+    this.behavior = new ClassicBehavior().rules
   }
 
   answerQuestion(input) {
@@ -20,9 +12,10 @@ export default class Bot {
     })
 
     if (rule === undefined) {
-      return {
-        msg:
-          'I am not sure to understand the question. Could you reword your question?'
+      if (input.endsWith('?')) {
+        return { msg: 'I am not sure to understand the question. Could you reword your question?' }
+      } else {
+        return { msg: 'Ok' }
       }
     } else {
       return rule.answer
