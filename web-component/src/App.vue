@@ -23,6 +23,10 @@
                 <v-card-title>
                   {{ item.message }}
                 </v-card-title>
+                <v-card-title v-if="item.url != null">
+                  You can read more about that on the 
+                  <a :href="item.url" target="_blank">official documentation</a>.
+                </v-card-title>
               </v-card>
             </v-flex>
             <v-flex v-if="item.who=='me'"
@@ -54,7 +58,7 @@
         <v-avatar size="240px"
                   class="mb-5"
                   tile="true">
-          <img src="/static/hello.gif">
+          <img src="/static/claudio-hello.gif">
         </v-avatar>
         <blockquote>
           Hello there, I'm here to help.<br/> Be my guest!
@@ -93,8 +97,16 @@ export default {
       } else if (this.items.length === 4) {
         this.items.splice(0, 2)
       }
+      // Display my question
       this.items.push({ who: 'me', message: this.question })
-      this.items.push({ who: 'bot', message: this.$bot.answerQuestion(this.question) })
+      // Grab the answer
+      let answer = this.$bot.answerQuestion(this.question)
+      // Display the answer
+      this.items.push({
+        who: 'bot',
+        message: answer.msg,
+        url: answer.url
+      })
     }
   }
 }
