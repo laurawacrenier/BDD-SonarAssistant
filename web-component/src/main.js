@@ -4,9 +4,11 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import './stylus/main.styl'
 import App from './App'
+import Bot from './services/Bot'
 
 Vue.use(Vuetify)
 Vue.config.productionTip = false
+Vue.bot = Vue.prototype.$bot = new Bot()
 
 /* eslint-disable no-new */
 new Vue({

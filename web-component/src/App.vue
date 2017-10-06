@@ -27,10 +27,13 @@
       </v-list>
       <v-footer fixed="true"
                 class="mt-2 mb-3">
-        <v-text-field v-model="question"
-                      hint="Ask a question"
-                      append-icon="send">
-        </v-text-field>
+        <form @submit.prevent="askQuestion()"
+              class="questionForm">
+          <v-text-field v-model="question"
+                        hint="Ask a question"
+                        append-icon="send">
+          </v-text-field>
+        </form>
       </v-footer>
     </v-navigation-drawer>
 
@@ -39,7 +42,8 @@
         <v-slide-y-transition mode="out-in">
           <v-layout column
                     align-center>
-            <v-avatar size="240px" class="mb-5">
+            <v-avatar size="240px"
+                      class="mb-5">
               <img src="/static/claudio-avatar-60x60.png">
             </v-avatar>
             <blockquote>
@@ -67,10 +71,17 @@ export default {
       miniVariant: false,
       question: '',
       items: [
-        { who: 'bot', message: 'I will be in your neighborhood doing errands this weekend. Do you want to hang out?' },
-        { who: 'me', message: 'Wish I could come, but I am out of town this weekend.' },
-        { who: 'bot', message: 'Do you have Paris recommendations? Have you ever been?' }
+        {
+          who: 'bot',
+          message: 'Hey there, how can I help you?'
+        }
       ]
+    }
+  },
+  methods: {
+    askQuestion() {
+      this.items.push({ who: 'me', message: this.question })
+      this.items.push({ who: 'bot', message: this.$bot.answerQuestion(this.question) })
     }
   }
 }
@@ -83,6 +94,10 @@ export default {
 
 .footer {
   background: transparent !important;
+}
+
+.questionForm {
+  width: 100%;
 }
 
 .divider--inset {
