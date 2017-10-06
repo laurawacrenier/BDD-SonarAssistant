@@ -1,8 +1,16 @@
-import Behavior from './Behavior'
+import AggressiveBehavior from './AggressiveBehavior'
+import PoshBehavior from './PoshBehavior'
+import GeekBehavior from './GeekBehavior'
 
 export default class Bot {
   constructor() {
-    this.behavior = new Behavior().rules
+    this.behavior = this.selectBehavior().rules
+  }
+
+  selectBehavior() {
+    var allBehaviors = [new PoshBehavior(), new GeekBehavior(), new AggressiveBehavior()]
+    var randomIndex = Math.floor((Math.random() * 3) + 1)
+    return allBehaviors[randomIndex]
   }
 
   answerQuestion(input) {

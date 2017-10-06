@@ -1,4 +1,4 @@
-export default class Behavior {
+export default class GeekBehavior {
   constructor() {
     this.rules = [
       {
