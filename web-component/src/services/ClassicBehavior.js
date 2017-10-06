@@ -1,18 +1,25 @@
-export default class GeekBehavior {
+export default class ClassicBehavior {
   constructor() {
     this.rules = [
       {
-        pattern: 'what.*quality gate.*',
+        pattern: '.*quality gate.*',
         answer: {
           msg: 'A quality gate is the best way to enforce a quality policy in your organization.',
           url: 'https://docs.sonarqube.org/display/SONAR/Quality+Gates'
         }
       },
       {
-        pattern: 'what.*quality profile.*',
+        pattern: '.*quality profile.*',
         answer: {
           msg: 'The Quality Profiles service is central to SonarQube, since it is where you define your requirements by defining sets of rules',
           url: 'https://docs.sonarqube.org/display/SONAR/Quality+Profiles'
+        }
+      },
+      {
+        pattern: '.*bdd.*',
+        answer: {
+          msg: 'BDD is Brain Dev Day, and it is really great!',
+          mood: 'happy'
         }
       },
       {
@@ -34,14 +41,14 @@ export default class GeekBehavior {
         }
       },
       {
-        pattern: 'how old are you?',
+        pattern: 'how old are you\\?',
         answer: {
           msg: 'I think you meant how YOUNG am I?',
           mood: 'laugh'
         }
       },
       {
-        pattern: 'how young are you?',
+        pattern: 'how young are you\\?',
         answer: {
           msg: 'I\'m 9183 days, 3 hours and 22 minutes.'
         }
@@ -61,7 +68,7 @@ export default class GeekBehavior {
         }
       },
       {
-        pattern: 'you.*awesome?',
+        pattern: 'you.*awesome',
         answer: {
           msg: 'Yeah, thanks, I\'m DA BOMB man!',
           mood: 'dance'
@@ -80,7 +87,7 @@ export default class GeekBehavior {
         }
       },
       {
-        pattern: 'what\'s up?',
+        pattern: 'what\'s up\\?',
         answer: {
           msg: 'I am in the middle of an awesome Brain Dev Day in Evian!'
         }
