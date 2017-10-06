@@ -49,26 +49,22 @@
     </v-navigation-drawer>
 
     <main>
-      <v-container fluid>
-        <v-slide-y-transition mode="out-in">
-          <v-layout column
-                    align-center>
-            <v-avatar size="240px"
-                      class="mb-5"
-                      tile="true">
-              <img src="/static/hello.gif">
-            </v-avatar>
-            <blockquote>
-              Hello there, I'm here to help.<br/> Be my guest!
-              <footer>
-                <small>
-                  <em>&mdash;Claudio l'ornytho</em>
-                </small>
-              </footer>
-            </blockquote>
-          </v-layout>
-        </v-slide-y-transition>
-      </v-container>
+      <v-layout column
+                align-center>
+        <v-avatar size="240px"
+                  class="mb-5"
+                  tile="true">
+          <img src="/static/hello.gif">
+        </v-avatar>
+        <blockquote>
+          Hello there, I'm here to help.<br/> Be my guest!
+          <footer>
+            <small>
+              <em>&mdash;Claudio l'ornytho</em>
+            </small>
+          </footer>
+        </blockquote>
+      </v-layout>
     </main>
   </v-app>
 </template>
@@ -106,7 +102,7 @@ export default {
 
 <style>
 .navigation-drawer {
-  width: 400px;
+  width: 500px;
 }
 
 .footer {
@@ -117,9 +113,7 @@ export default {
   width: 100%;
 }
 
-.divider--inset {
-  margin-left: 72px;
-  margin-right: 72px;
-  width: calc(100% - 72px - 72px);
+main {
+  padding-left: 500px !important;
 }
 </style>
