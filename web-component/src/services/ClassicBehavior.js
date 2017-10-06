@@ -23,12 +23,6 @@ export default class ClassicBehavior {
         }
       },
       {
-        pattern: '^hello.*',
-        answer: {
-          msg: 'Hi there'
-        }
-      },
-      {
         pattern: 'what.*your name.*',
         answer: {
           msg: 'My name is Claudio l\'Ornytho. May I ask about yours?'
@@ -90,6 +84,12 @@ export default class ClassicBehavior {
         pattern: 'what\'s up\\?',
         answer: {
           msg: 'I am in the middle of an awesome Brain Dev Day in Evian!'
+        }
+      },
+      {
+        pattern: '^hello.*',
+        answer: {
+          msg: 'Hi there'
         }
       }
     ]
