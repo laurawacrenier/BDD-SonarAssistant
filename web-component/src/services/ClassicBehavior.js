@@ -36,13 +36,13 @@ export default class GeekBehavior {
       {
         pattern: 'how old are you?',
         answer: {
-          msg: 'I think you meant how YOUNG am I?'
+          msg: 'I think you meant how YOUNG am I? ;-)'
         }
       },
       {
         pattern: 'how young are you?',
         answer: {
-          msg: 'That\'s none of your business.'
+          msg: 'I\'m 9183 days, 3 hours and 22 minutes.'
         }
       },
       {
@@ -63,13 +63,6 @@ export default class GeekBehavior {
         pattern: '.*thank you.*',
         answer: {
           msg: 'You are welcome.'
-        }
-      },
-      {
-        pattern: 'you are too sensitive',
-        answer: {
-          msg: 'Me sensitive? Sure, I am sensitive to the fact you are a complete jerk!',
-          mood: 'angry'
         }
       },
       {
