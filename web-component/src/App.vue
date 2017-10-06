@@ -5,27 +5,38 @@
                          :clipped="clipped"
                          v-model="drawer"
                          enable-resize-watcher>
-      <v-list two-line
-              dark>
-        <template v-for="(item, index) in items">
-          <v-divider v-if="index > 0"
-                     :inset="true"
-                     :key="index"></v-divider>
-          <v-list-tile avatar
-                       v-bind:key="item.title">
-            <v-list-tile-avatar v-if="item.who=='bot'">
-              <img src="/static/claudio-avatar-60x60.png">
-            </v-list-tile-avatar>
-            <v-list-tile-content>
-              <v-list-tile-title v-html="item.message"></v-list-tile-title>
-            </v-list-tile-content>
-            <v-list-tile-avatar v-if="item.who=='me'">
-              <img src="https://secure.gravatar.com/avatar/3bee1367bdf28d58f7c4527f6a84ca33.jpg">
-            </v-list-tile-avatar>
-          </v-list-tile>
-        </template>
-      </v-list>
+
+      <template v-for="(item, index) in items">
+        <v-container fluid
+                     grid-list-lg
+                     v-bind:key="item">
+          <v-layout row>
+            <v-flex v-if="item.who=='bot'"
+                    xs2>
+              <v-avatar>
+                <img src="/static/claudio-avatar-60x60.png">
+              </v-avatar>
+            </v-flex>
+            <v-flex xs10>
+              <v-card v-bind:key="item"
+                      class="ma-2">
+                <v-card-title>
+                  {{ item.message }}
+                </v-card-title>
+              </v-card>
+            </v-flex>
+            <v-flex v-if="item.who=='me'"
+                    xs2>
+              <v-avatar>
+                <img src="https://secure.gravatar.com/avatar/3bee1367bdf28d58f7c4527f6a84ca33.jpg">
+              </v-avatar>
+            </v-flex>
+          </v-layout>
+        </v-container>
+      </template>
+
       <v-footer fixed="true"
+                absolute="true"
                 class="mt-2 mb-3">
         <form @submit.prevent="askQuestion()"
               class="questionForm">
