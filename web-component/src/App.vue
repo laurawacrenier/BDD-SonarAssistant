@@ -19,7 +19,7 @@
             </v-flex>
             <v-flex xs10>
               <v-card v-bind:key="item"
-                      class="ma-2">
+                      class="ma-2 grey darken-2">
                 <v-card-title>
                   {{ item.message }}
                 </v-card-title>
