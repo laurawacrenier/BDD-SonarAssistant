@@ -8,24 +8,11 @@ export default class Bot {
       case lowerCaseInput.startsWith('how'):
         return this.matchHowInput(lowerCaseInput)
     }
+
+    return 'I am not sure to understand the question. Could you reword your question?'
   }
 
-  matchWhatInput(input) {
-    switch (true) {
-      case /.*quality gate.*/.test(input):
-        return {
-          msg: 'A quality gate is the best way to enforce a quality policy in your organization.',
-          url: 'https://docs.sonarqube.org/display/SONAR/Quality+Gates'
-        }
-      case /.*quality profile.*/.test(input):
-        return {
-          msg: 'The Quality Profiles service is central to SonarQube, since it is where you define your requirements by defining sets of rules',
-          url: 'https://docs.sonarqube.org/display/SONAR/Quality+Profiles'
-        }
-    }
-  }
-
-  matchHowInput(input) {
-    return ''
+  initializeBehavior() {
+    
   }
 }
