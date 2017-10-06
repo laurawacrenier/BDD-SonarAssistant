@@ -92,6 +92,11 @@ export default {
   },
   methods: {
     askQuestion() {
+      if (this.items.length === 1) {
+        this.items = []
+      } else if (this.items.length === 4) {
+        this.items.splice(0, 2)
+      }
       this.items.push({ who: 'me', message: this.question })
       this.items.push({ who: 'bot', message: this.$bot.answerQuestion(this.question) })
     }
