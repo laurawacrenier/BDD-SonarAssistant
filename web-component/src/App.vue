@@ -54,14 +54,15 @@
           <v-layout column
                     align-center>
             <v-avatar size="240px"
-                      class="mb-5">
-              <img src="/static/claudio-avatar-60x60.png">
+                      class="mb-5"
+                      tile="true">
+              <img src="/static/hello.gif">
             </v-avatar>
             <blockquote>
               Hello there, I'm here to help.<br/> Be my guest!
               <footer>
                 <small>
-                  <em>&mdash;Claudio</em>
+                  <em>&mdash;Claudio l'ornytho</em>
                 </small>
               </footer>
             </blockquote>
