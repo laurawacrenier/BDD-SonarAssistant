@@ -134,7 +134,7 @@ export default {
 
 <style>
 .navigation-drawer {
-  width: 500px;
+  width: 400px;
 }
 
 .footer {
@@ -146,6 +146,6 @@ export default {
 }
 
 main {
-  padding-left: 500px !important;
+  padding-left: 400px !important;
 }
 </style>
