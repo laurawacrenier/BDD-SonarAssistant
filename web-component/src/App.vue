@@ -60,7 +60,7 @@
           Hello there, I'm here to help.<br/> Be my guest!
           <footer>
             <small>
-              <em>&mdash;Claudio l'ornytho</em>
+              <em>&mdash; Claudio l'Ornytho</em>
             </small>
           </footer>
         </blockquote>
