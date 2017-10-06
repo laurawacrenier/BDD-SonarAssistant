@@ -36,7 +36,8 @@ export default class GeekBehavior {
       {
         pattern: 'how old are you?',
         answer: {
-          msg: 'I think you meant how YOUNG am I? ;-)'
+          msg: 'I think you meant how YOUNG am I?',
+          mood: 'laugh'
         }
       },
       {
@@ -57,6 +58,13 @@ export default class GeekBehavior {
         answer: {
           msg: 'Is that right? And what exactly have you accomplished in your lifetime that makes you Einstein.',
           mood: 'angry'
+        }
+      },
+      {
+        pattern: 'you.*awesome?',
+        answer: {
+          msg: 'Yeah, thanks, I\'m DA BOMB man!',
+          mood: 'dance'
         }
       },
       {

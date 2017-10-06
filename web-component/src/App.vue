@@ -122,19 +122,26 @@ export default {
       })
 
       // manage the mood
-      let timeout = 4000
-      if (answer.mood === 'angry') {
-        this.claudioImage = '/static/Claudio-Angry.gif'
-        timeout = 9000
-      } else {
-        this.claudioImage = '/static/claudio-talking.gif'
-      }
+      // let timeout = 4000
+      // if (answer.mood === 'angry') {
+      //   // let's stay a bit longer for this one... :-)
+      //   timeout = 9000
+      // }
+      this.claudioImage = this.getPicForMood(answer.mood)
 
       // And get back to normal state
-      setTimeout(this.sayHello, timeout)
+      setTimeout(this.sayHello, 9000)
     },
     sayHello() {
       this.claudioImage = '/static/claudio-hello.gif'
+    },
+    getPicForMood(mood) {
+      switch (mood) {
+        case 'angry': return '/static/Claudio-Angry.gif'
+        case 'laugh': return '/static/Claudio-Laughing.gif'
+        case 'dance': return '/static/Claudio-Dancing.gif'
+        default: return '/static/claudio-talking.gif'
+      }
     }
   }
 }
