@@ -105,18 +105,28 @@ export default {
       this.items.push({ who: 'me', message: this.question })
       this.claudioImage = '/static/Claudio-Thinking.gif'
 
-      // Grab the answer
+      // And wait for the answer
+      setTimeout(this.giveAnswer, 2000)
+    },
+    typingQuestion() {
+      this.claudioImage = '/static/Claudio-Waiting.gif'
+    },
+    giveAnswer() {
+      // Get the answer
       let answer = this.$bot.answerQuestion(this.question)
-      // Display the answer
+      // And display it
       this.items.push({
         who: 'bot',
         message: answer.msg,
         url: answer.url
       })
       this.claudioImage = '/static/claudio-talking.gif'
+
+      // And get back to normal state
+      setTimeout(this.sayHello, 4000)
     },
-    typingQuestion() {
-      this.claudioImage = '/static/Claudio-Waiting.gif'
+    sayHello() {
+      this.claudioImage = '/static/claudio-hello.gif'
     }
   }
 }

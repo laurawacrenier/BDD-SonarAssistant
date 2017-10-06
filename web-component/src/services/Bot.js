@@ -13,7 +13,8 @@ export default class Bot {
 
     if (rule === undefined) {
       return {
-        msg: 'I am not sure to understand the question. Could you reword your question?'
+        msg:
+          'I am not sure to understand the question. Could you reword your question?'
       }
     } else {
       return rule.answer
