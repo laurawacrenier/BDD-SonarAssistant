@@ -1,4 +1,10 @@
+import Behavior from './Behavior'
+
 export default class Bot {
+  constructor() {
+    this.behavior = new Behavior().rules
+  }
+
   answerQuestion(input) {
     var lowerCaseInput = input.toLowerCase()
 
@@ -10,9 +16,5 @@ export default class Bot {
     }
 
     return 'I am not sure to understand the question. Could you reword your question?'
-  }
-
-  initializeBehavior() {
-    
   }
 }
