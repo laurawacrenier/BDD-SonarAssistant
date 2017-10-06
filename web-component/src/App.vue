@@ -49,11 +49,11 @@
 
           <v-flex xs4>
             <div style="width: 100%; text-align: center">
-            <v-avatar size="300px"
-                      class="mb-5"
-                      tile="true">
-              <img :src="claudioImage">
-            </v-avatar>
+              <v-avatar size="300px"
+                        class="mb-5"
+                        tile="true">
+                <img :src="claudioImage">
+              </v-avatar>
             </div>
           </v-flex>
         </v-layout>
@@ -120,10 +120,18 @@ export default {
         message: answer.msg,
         url: answer.url
       })
-      this.claudioImage = '/static/claudio-talking.gif'
+
+      // manage the mood
+      let timeout = 4000
+      if (answer.mood === 'angry') {
+        this.claudioImage = '/static/Claudio-Angry.gif'
+        timeout = 9000
+      } else {
+        this.claudioImage = '/static/claudio-talking.gif'
+      }
 
       // And get back to normal state
-      setTimeout(this.sayHello, 4000)
+      setTimeout(this.sayHello, timeout)
     },
     sayHello() {
       this.claudioImage = '/static/claudio-hello.gif'
